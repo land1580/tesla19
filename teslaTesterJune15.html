@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="description" content="Mock Tesla Vehicle Website">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Lawrence Anderson">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="https://fonts.googleapis.com/css?family=Cinzel|Cinzel+Decorative|Cormorant|Cormorant+Infant|Forum|Gruppo|Montserrat" rel="stylesheet">
+	<title>Tesla Vehicles</title>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+  	$(document).ready(function(){
+		$('.smallCarBox').hide();
+		$('.sidebarBtn').hide();
+
+ 		$(window).on('resize', function()
+        {
+            if ($(window).width() < 685){
+                $('.sidebarBtn').fadeIn(300);
+                $('.interiorModel3').css({
+                    'background-position' : '10vw'});
+                $('.smallCarBox').css({
+                    'height' : '200vh'});	
+            }
+            else{
+                $('.sidebarBtn').hide();
+                $('.interiorModel3').css({
+                    'background-position' : 'center'});
+                $('.smallCarBox').css({
+                    'height' : '100vh'});
+            }
+    	});
+
+		$(window).scroll(function(){
+			if($(this).scrollTop() > 40 || $(window).width() < 695){	
+				$('.sidebarBtn').fadeIn(300);	
+				$('.sidebar').fadeIn(250);		
+			}
+			else{
+				$('.sidebarBtn').fadeOut(800); 			
+				$('.sidebar').fadeOut(750);
+			}
+            if($(this).scrollTop() > 150){
+                $('#intro img').fadeOut(450);
+            }
+            else{
+                $('#intro img').fadeIn(250);
+            }
+		});
+
+  		$('.sidebarBtn').click(function(){	
+  			$('.sidebar').toggleClass('active');
+  			$('.sidebarBtn').toggleClass('toggle');
+  		});
+  		$('.sidebar ul li a').click(function(){
+  			$('.sidebar').toggleClass('active');
+  			$('.sidebarBtn').toggleClass('toggle');
+  		});
+		$('.sidebar ul li a, header a').on('click',function(event){
+			$('.smallCarBox, .blkInt, .whtInt, .crmInt').hide();
+			if (this.hash !== ""){
+				event.preventDefault();
+				var hash = this.hash;
+				$('html, body').animate({
+        				scrollTop: $(hash).offset().top}, 2000, function(){
+						window.location.hash = hash;
+      			});
+			}
+		});
+
+		$('#m3 .designBtn').click(function(){	
+  			$('#m3 .design, #m3 .arrowT, #m3 .arrowB').toggleClass('toggle');
+  		});
+		$('#mS .designBtn').click(function(){	
+  			$('#mS .design, #mS .arrowT, #mS .arrowB').toggleClass('toggle');
+  		});
+		$('#mX .designBtn').click(function(){	
+  			$('#mX .design, #mX .arrowT, #mX .arrowB').toggleClass('toggle');
+  		});
+		$('#mR .designBtn').click(function(){	
+  			$('#mR .design, #mR .arrowT, #mR .arrowB').toggleClass('toggle');
+  		});
+
+		$('#m3 button, #m3 table').click(function(){	
+  			$('#m3 table').toggleClass('toggle');
+  		});
+  		$('#mS button, #mS table').click(function(){	
+  			$('#mS table').toggleClass('toggle');
+  		});
+  		$('#mX button, #mX table').click(function(){	
+  			$('#mX table').toggleClass('toggle');
+  		});
+  		$('#mR button, #mR table').click(function(){	
+  			$('#mR table').toggleClass('toggle');
+  		});
+
+		$('.m3btn').click(function(e){
+			event.preventDefault();
+			var href = $(this).attr('href');
+        		$('#mkM3').show(function(){
+				window.location = href;
+			});
+			$('.whtInt, .blkInt').show();
+			$('.crmInt').hide();
+			$('#m3 .design, #m3 .arrowT, #m3 .arrowB').toggleClass('toggle');
+   	 	});
+		$('.mSbtn').click(function(e){
+			event.preventDefault();
+			var href = $(this).attr('href');
+        		$('#mkMS').show(function(){
+				window.location = href;
+			});
+			$('.blkInt, .whtInt, .crmInt').show();
+            $('#mS .design, #mS .arrowT, #mS .arrowB').toggleClass('toggle');
+   	 	});
+		$('.mXbtn').click(function(e){
+			event.preventDefault();
+			var href = $(this).attr('href');
+        		$('#mkMX').show(function(){
+				window.location = href;
+			});
+			$('.blkInt, .whtInt, .crmInt').show();
+            $('#mX .design, #mX .arrowT, #mX .arrowB').toggleClass('toggle');
+   	 	});
+		$('.mRbtn').click(function(e){
+			event.preventDefault();
+			var href = $(this).attr('href');
+        	$('#mkMR').show(function(){
+				window.location = href;
+			});
+        		$('.whtInt').show();
+			$('.blkInt, .crmInt').hide();
+            $('#mR .design, #mR .arrowT, #mR .arrowB').toggleClass('toggle');
+   	 	});
+
+   	 	$('#mkM3 .redExt').click(function(){
+			$('.exteriorModel3').css({
+				'background' : 'url("https://static-assets.tesla.com/configurator/compositor?&options=$PPMR,$W39B,$DV4W,$MT304,$IN3PW,$PFP31&view=STUD_3QTR&model=m3&size=1441&bkba_opt=1&version=0.0.25")',
+				'width' : '60vw',
+				'height' : '85vh',
+				'background-repeat' : 'no-repeat',
+				'background-position' : 'center',
+				'background-size' : '120%'
+			});
+		});
+		$('#mkM3 .bluExt').click(function(){
+			$('.exteriorModel3').css({
+				'background' : 'url("https://static-assets.tesla.com/configurator/compositor?&options=$PPSB,$W39B,$DV4W,$MT304,$IN3PW,$PFP31&view=STUD_3QTR&model=m3&size=1441&bkba_opt=1&version=0.0.25")',
+				'width' : '60vw',
+				'height' : '85vh',
+				'background-repeat' : 'no-repeat',
+				'background-position' : 'center',
+				'background-size' : '120%'
+			});
+		});
+		$('#mkM3 .whtExt').click(function(){
+			$('.exteriorModel3').css({
+				'background' : 'url("https://static-assets.tesla.com/configurator/compositor?&options=$PPSW,$W39B,$DV4W,$MT304,$IN3PW,$PFP31&view=STUD_3QTR&model=m3&size=1441&bkba_opt=1&version=0.0.25")',
+				'width' : '60vw',
+				'height' : '85vh',
+				'background-repeat' : 'no-repeat',
+				'background-position' : 'center',
+				'background-size' : '120%'
+			});
+		});
+		$('#mkM3 .blkInt').click(function(){
+			$('.interiorModel3').css({
+				'background' : 'url("https://static-assets.tesla.com/configurator/compositor?&options=$PPSW,$W39B,$DV4W,$MT304,$IN3PB&view=STUD_SEAT&model=m3&size=1441&bkba_opt=1&version=0.0.25")',
+				'height' : '85vh',
+				'background-repeat' : 'no-repeat',
+				'background-size' : '115%'
+			});						
+			if ($(window).width() < 695){
+        		$('.interiorModel3').css({
+					'background-position' : '10vw',	
+					'width' : '60vw'
+				});
+        	}
+			else{
+        		$('.interiorModel3').css({
+					'background-position' : 'center',		
+					'width' : '37vw'
+				});
+			}
+		});
+		$('#mkM3 .whtInt').click(function(){
+			$('.interiorModel3').css({
+				'background' : 'url("https://static-assets.tesla.com/configurator/compositor?&options=$PMBL,$W39B,$DV4W,$MT304,$IN3PW,$PFP31&view=STUD_SEAT&model=m3&size=1441&bkba_opt=1&version=0.0.25*")',
+				'height' : '85vh',
+				'background-repeat' : 'no-repeat',
+				'background-size' : '115%'
+			});
+			if ($(window).width() < 695){
+            	$('.interiorModel3').css({
+					'background-position' : '10vw',
+					'width' : '60vw'
+				});
+        	}
+			else{
+            	$('.interiorModel3').css({
+					'background-position' : 'center',	
+					'width' : '37vw'
+				});
+			}
+		});
+
+   	 	$('#mkMS .redExt').click(function(){
+			$('.exteriorModelS').css({
+				'background' : 'url("https://media.novinky.cz/712/547125-top_foto1-ymnrg.jpg?1508144407")',
+				'height' : '85vh',
+				'background-repeat' : 'no-repeat',
+				'background-size' : '70%'
+			});
+            if ($(window).width() < 695){
+            	$('.exteriorModelS').css({
+					'background-position' : 'left',
+                    'width' : '40vw'
+				});
+            }
+            else{
+                $('.exteriorModelS').css({
+					'background-position' : 'center',
+                    'width' : '60vw'
+				});
+            }
+		});
+   	 	$('#mkMS .bluExt').click(function(){
+			$('.exteriorModelS').css({
+				'background' : 'url("https://media3.s-nbcnews.com/j/newscms/2016_23/1572071/160609-tesla-model-s-cheaper-sedan-yh-1240p_e347e71ed6eed3f9141a16a6b4026800.fit-760w.jpg")',
+				'height' : '85vh',
+				'background-repeat' : 'no-repeat',
+				'background-size' : '70%'
+			});
+            if ($(window).width() < 695){
+            	$('.exteriorModelS').css({
+					'background-position' : 'left',
+                    'width' : '40vw'
+				});
+            }
+            else{
+                $('.exteriorModelS').css({
+					'background-position' : 'center',
+                    'width' : '60vw'
+				});
+            }
+		});
+   	 	$('#mkMS .whtExt').click(function(){
+			$('.exteriorModelS').css({
+				'background' : 'url("https://i.kinja-img.com/gawker-media/image/upload/s--mttmF6Rf--/c_scale,f_auto,fl_progressive,q_80,w_800/kqbq2zs0xe0cafi1l8tb.jpg")',
+				'height' : '85vh',
+				'background-repeat' : 'no-repeat',
+				'background-size' : '70%'
+			});
+            if ($(window).width() < 695){
+            	$('.exteriorModelS').css({
+					'background-position' : 'left',
+                    'width' : '40vw'
+				});
+            }
+            else{
+                $('.exteriorModelS').css({
+					'background-position' : 'center',
+                    'width' : '60vw'
+				});
+            }
+		});
+   	 	$('#mkMS .blkInt').click(function(){
+			$('.interiorModelS').css({
+				'background' : 'url("https://cleantechnica.com/files/2018/05/Tesla-Model-X-Weird-768x512.jpg")',
+				'background-repeat' : 'no-repeat',
+				'background-size' : '130%'
+			});
+			if ($(window).width() < 695){
+            	$('.interiorModelS').css({
+					'background-position' : 'left',
+					'width' : '40vw',
+                    'height' : '45vh'
+				});
+        	}
+			else{
+            	$('.interiorModelS').css({
+					'background-position' : 'center',
+					'width' : '40vw',
+                    'height' : '85vh'
+				});
+			}
+		});
+   	 	$('#mkMS .whtInt').click(function(){
+			$('.interiorModelS').css({
+				'background' : 'url("https://cleantechnica.com/files/2018/05/Model-X-Cream-Interior-White-768x512.jpg")',
+				'background-repeat' : 'no-repeat',
+				'background-size' : '130%'
+			});
+			if ($(window).width() < 695){
+        		$('.interiorModelS').css({
+					'background-position' : 'left',
+					'width' : '40vw',
+                    'height' : '45vh'
+				});
+        	}
+			else{
+            	$('.interiorModelS').css({
+					'background-position' : 'center',
+					'width' : '40vw',
+                    'height' : '85vh'
+				});
+			}
+		});
+   	 	$('#mkMS .crmInt').click(function(){
+			$('.interiorModelS').css({
+				'background' : 'url("https://cleantechnica.com/files/2018/05/Model-S-Cream-Interior-Light-768x512.jpg")',
+				'background-repeat' : 'no-repeat',
+				'background-size' : '114%'
+			});
+			if ($(window).width() < 695){
+        		$('.interiorModelS').css({
+					'background-position' : 'left',
+					'width' : '40vw',
+                    'height' : '41vh'
+				});
+        	}
+			else{
+            	$('.interiorModelS').css({
+					'background-position' : '10% 50%',
+					'width' : '40vw',
+                    'height' : '81vh'
+				});
+			}
+		});
+
+   	 	$('#mkMX .redExt').click(function(){
+			$('.exteriorModelX').css({
+				'background' : 'url("https://car-images.bauersecure.com/pagefiles/31575/modelx60.jpg")',
+				'width' : '60vw',
+				'height' : '85vh',
+				'background-repeat' : 'no-repeat',
+				'background-position' : 'center',
+				'background-size' : '70%'
+			});
+		});
+   	 	$('#mkMX .bluExt').click(function(){
+			$('.exteriorModelX').css({
+                'background' : 'url("https://di-uploads-pod5.dealerinspire.com/currentautomotive1/uploads/2018/05/deep-blue-metallic.png")',
+				'width' : '60vw',
+				'height' : '85vh',
+				'background-repeat' : 'no-repeat',
+				'background-position' : 'center',
+				'background-size' : '70%'
+			});
+		});
+   	 	$('#mkMX .whtExt').click(function(){
+			$('.exteriorModelX').css({
+				'background' : 'url("https://t1.daumcdn.net/cfile/tistory/26089240578754F316")',
+				'width' : '60vw',
+				'height' : '85vh',
+				'background-repeat' : 'no-repeat',
+				'background-position' : 'center',
+				'background-size' : '70%'
+			});
+		});
+   	 	$('#mkMX .blkInt').click(function(){
+			$('.interiorModelX').css({
+				'background' : 'url("https://www.teslamotors.com/tesla_theme/assets/img/modelx/section-interior-primary-black.jpg")',
+				'height' : '85vh',
+				'background-repeat' : 'no-repeat',
+				'background-size' : '105%'
+			});
+			if ($(window).width() < 695){
+        			$('.interiorModelX').css({
+					'background-position' : '10vw',
+					'width' : '60vw'
+				});
+        	}
+			else{
+            	$('.interiorModelX').css({
+					'background-position' : 'left',
+					'width' : '37vw'
+				});
+			}
+		});
+   	 	$('#mkMX .whtInt').click(function(){
+			$('.interiorModelX').css({
+				'background' : 'url("https://i.pinimg.com/564x/4a/49/3b/4a493b25b45522819ceb859a48b70d35.jpg")',
+				'height' : '85vh',
+				'background-repeat' : 'no-repeat',
+				'background-size' : '97%'
+			});
+			if ($(window).width() < 695){
+        			$('.interiorModelX').css({
+					'background-position' : '10vw',
+					'width' : '60vw'
+				});
+        	}
+			else{
+            	$('.interiorModelX').css({
+					'background-position' : 'left',
+					'width' : '37vw'
+				});
+			}
+		});
+   	 	$('#mkMX .crmInt').click(function(){
+			$('.interiorModelX').css({
+				'background' : 'url("https://www.teslamotors.com/tesla_theme/assets/img/modelx/section-interior-primary-tan.jpg")',
+				'height' : '85vh',
+				'background-repeat' : 'no-repeat',
+				'background-size' : '105%'
+			});
+			if ($(window).width() < 695){
+        			$('.interiorModelX').css({
+					'background-position' : '10vw',
+					'width' : '60vw'
+				});
+        	}
+			else{
+            	$('.interiorModelX').css({
+					'background-position' : 'left',
+					'width' : '37vw'
+				});
+			}
+		});
+
+		$('#mkMR .bluExt').click(function(){
+			$('.exteriorModelR').css({
+				'background' : 'url("https://mc-astro.github.io/tesla-roadster-colors/img/blue.jpg")',
+				'width' : '60vw',
+				'height' : '85vh',
+				'background-repeat' : 'no-repeat',
+				'background-position' : 'center',
+				'background-size' : '115%'
+			});
+		});
+		$('#mkMR .redExt').click(function(){
+			$('.exteriorModelR').css({
+				'background' : 'url("https://mc-astro.github.io/tesla-roadster-colors/img/red.jpg")',
+				'width' : '60vw',
+				'height' : '85vh',
+				'background-repeat' : 'no-repeat',
+				'background-position' : 'center',
+				'background-size' : '115%'
+			});
+		});
+		$('#mkMR .whtExt').click(function(){
+			$('.exteriorModelR').css({
+				'background' : 'url("https://mc-astro.github.io/tesla-roadster-colors/img/white.jpg")',
+				'width' : '60vw',
+				'height' : '85vh',
+				'background-repeat' : 'no-repeat',
+				'background-position' : 'center',
+				'background-size' : '115%'
+			});
+		});
+   	 	$('#mkMR .whtInt').click(function(){
+			$('.interiorModelR').css({
+				'background' : 'url("http://blog.evsmart.net/wp-content/uploads/2017/12/Roadster_Interior.jpg")',
+				'height' : '85vh',
+				'background-repeat' : 'no-repeat',
+				'background-size' : '130%'
+			});
+			if ($(window).width() < 695){
+            	$('.interiorModelR').css({
+					'background-position' : '10vw',
+					'width' : '60vw'
+				});
+        	}
+			else{
+            	$('.interiorModelR').css({
+					'background-position' : 'left',
+					'width' : '37vw'
+				});
+			}
+		});
+  	});
+</script>
+<style type="text/css">
+body{
+	margin: 0;
+	padding: 0;
+	font-family: 'Gruppo', cursive;
+	background: #fff;
+}	
+#wrapper{
+    background-color: white;
+    min-height: 1400px;
+}
+.sidebar{
+	position: fixed;
+	top: 0;
+	right: -150px;
+	background: url("https://i.pinimg.com/564x/ed/a1/2c/eda12c14b18970b33dea823fed28d122.jpg") right;
+	background-size: cover;
+	width: 150px;
+	height: 100%;
+	transition: .6s;
+}
+.active{
+	right: 0;
+}
+img.lower{
+	margin-top: 20vh;
+	margin-left: -33px;
+	width: 175px;
+	padding-left: 20px;
+}
+.sidebar ul{
+	margin: 0;
+	padding: 0;
+}
+.sidebar ul li{
+	list-style: none;
+}
+.sidebar ul li a{
+	padding: 10px 37px;
+	color: #fff;
+	display: block;
+	text-decoration: none;
+	border-bottom: 2px solid rgba(0,0,0,.2);
+	letter-spacing: 1px;
+}
+.sidebar ul li a:hover{
+	font-weight: bold;
+}
+.sidebarBtn{
+	position: absolute;
+	top: 0;
+	right: 150px;
+	width: 39px;
+	height: 50px;
+	box-sizing: border-box;
+	cursor: pointer;
+	background: #f5f5f5;
+	border: none;
+	outline: none;
+	box-shadow: 0 5px 20px rgba(0,0,0,.4);
+	transition: .6s;
+}
+.sidebarBtn:hover{
+	background: transparent;
+}
+.sidebarBtn span:hover{
+	color: black;
+}
+.sidebarBtn span{
+	display: block;
+	border-radius: 0 0 120px 120px;
+	width: 27px;
+	height: 5px;
+	background: #E82127;
+	position: absolute;
+	top: 24px;
+	transition: .4s;
+}
+.sidebarBtn span:before{
+	content: '';
+	border-radius: 0 0 120px 120px;
+	width: 100%;
+	height: 5px;
+	background: #E82127;
+	position: absolute;
+	top: -10px;
+	right: 0;
+	transition: .6s;
+}
+.sidebarBtn span:after{
+	content: '';
+	border-radius: 0 0 120px 120px;
+	width: 100%;
+	height: 5px;
+	background: #E82127;
+	position: absolute;
+	top: 10px;
+	right: 0;
+	transition: .6s;
+}
+.sidebarBtn.toggle span{
+	background: transparent;
+	box-shadow: 0 2px 2px rgba(0,0,0,0);
+}
+.sidebarBtn.toggle span:before{
+	top: 0;
+	transform: rotate(-45deg);
+}
+.sidebarBtn.toggle span:after{
+	top: 0;
+	transform: rotate(45deg);
+}
+.sidebarBtn.toggle {
+	background: url("https://i.pinimg.com/564x/ed/a1/2c/eda12c14b18970b33dea823fed28d122.jpg");
+	box-shadow: 0 5px 5px rgba(0,0,0,.4);
+}
+header{
+	background: linear-gradient(135deg, rgba(86,86,86,0) 0%,rgba(86,86,86,0.23) 35%,rgba(0,0,0,0.65) 100%);
+	height: 75px;
+}
+header img{
+    width: 100px;
+    margin: 0 0 0 20px;	
+}
+header ul{
+	float: right;
+	vertical-align: top;
+    margin: 28px 30px 0 0;
+    display: inline-block;
+}
+header ul li{
+    display: inline-block;
+    margin-right: 25px;
+}
+header a{
+    text-decoration: none;
+	color: white;
+    font-size: 16pt;
+    letter-spacing: 2px;
+}
+header a:hover{
+    color: black;
+    font-weight: bold;
+}
+h2{
+	font-family: 'Montserrat';
+	font-weight: 100;
+	font-size: 25pt;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	text-align: center;
+}
+#m3 h2{
+	color: red;
+}
+#mS h2{
+	color: yellow;
+}
+#mX h2{
+	color: white;
+}
+#mR h2{
+	color: lightslategray;
+}
+#m3 button, #mS button, 
+#mX button, #mR button{
+	color: white;
+	background: dimgray;
+	width: 25px;
+	height: 67px;
+	margin-top: 65vh;
+	cursor: pointer;
+	float: right;
+	transition: .6s;
+}
+#m3 button:hover, #mS button:hover,
+#mX button:hover, #mR button:hover{
+	background: white;
+	color: red;
+}
+h3{
+	margin: 10px; 
+}
+#m3 ul{
+	display: inline-block;
+	margin: 0 -4px;
+}
+#m3 ul li{
+	padding: 2px;
+}
+#m3 table.toggle, #mS table.toggle,
+#mX table.toggle, #mR table.toggle{
+	transform: translateX(850px);
+}
+.design{
+	position: relative;
+	border-top: 1px solid gainsboro;
+	top: 0;
+	left: -215px;
+	background: white;
+    display: inline-block;
+	width: 215px;
+	height: calc(100vh - 40vh);
+	box-shadow: -2px 6px 7px -3px rgba(122,122,122,1);
+	transition: 1.2s;
+}
+.designBtn{
+	position: absolute;
+	top: 0;
+	left: 215px;
+	width: 30px;
+	height: calc(100vh - 39vh);
+	box-sizing: border-box;
+	cursor: pointer;
+	background: white;
+	border: none;
+	outline: none;
+	box-shadow: -5px 11px 23px 2px rgba(0,0,0,.4);
+	transition: .15s;
+}
+.designBtn:hover{
+	box-shadow: -2px 5px 11px 2px rgba(0,0,0,.4);
+	background: ghostwhite;
+}
+.design.toggle{
+	left: 0;
+}
+.arrowT{
+	display: block;
+	border-radius: 0 0 120px 120px;
+	width: 20px;
+	height: 3px;
+	background: #E82127;
+	position: absolute;
+	top: 187px;
+	left: 5px;
+	transform: rotate(45deg);
+	transition: 1.4s;
+}
+.arrowB{
+	display: block;
+	border-radius: 120px 120px 0 0;
+	width: 20px;
+	height: 3px;
+	background: #E82127;
+	position: absolute;
+	top: 200px;
+	left: 5px;
+	transform: rotate(-45deg);
+	transition: 1.4s;
+}
+.arrowT.toggle{
+	transform: rotate(-45deg);
+}
+.arrowB.toggle{
+	transform: rotate(45deg);
+}
+#intro{
+	height: calc(100vh - 75px);
+	background: url("http://clipgoo.com/daut/as/f/d/does-your-concrete-flooring-need-repairing-signs-its-time-to-abstract-architecture-empty-room-interior-with-opening-in-ceiling-3d-illustration-blue_concrete-floors-great-architecture_architecture_arch.jpg") no-repeat center; 
+	background-size: cover;
+	background-attachment: fixed;
+	box-shadow: 0px -12px 22px inset;
+}
+#intro img{
+	position: relative;
+	margin-top: 32vh;
+    margin-left: 27vw;
+    width: 49vw;
+}
+#m3,#mS,#mX,
+#mR,#footer{
+    min-height: 100vh;
+    margin-top: -28px;
+}
+.specs{
+	min-height: 50px;
+	float: right;
+	overflow: hidden;
+}
+table{
+	float: right;
+	right: -850px;
+	margin-top: 65vh;
+	background: linear-gradient(to right, rgba(0,0,0,0) 0%,rgba(0,0,0,0.24) 10%,rgba(0,0,0,0.65) 27%);
+	padding: 10px 0px;
+	display: inline-block;
+	cursor: pointer;
+	transition: .8s;
+}
+th{
+	color: lightgray;
+	width: 10vw;
+	height: 3vh;
+	font-size: x-small;
+}
+td{
+	color: white;
+	width: inherit;
+	height: inherit;
+	text-align: center;
+	font-size: large;
+}
+#m3{
+	background: url("https://cleantechnica.com/files/2018/07/Model-3-Performance-Red-Turn.jpg") no-repeat bottom center;
+	background-size: cover;
+}
+#mS{
+	background: url("https://www.tesla.com/tesla_theme/assets/img/models/v1.0/section-hero-background.jpg?20180111") no-repeat center;
+	background-size: cover;
+}
+#parallax{
+	background: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/UD7CEz6/videoblocks-editorial-tesla-logo-on-glass-building_rshyodisg_thumbnail-full01.png") no-repeat center;
+	height: 45vh;
+	background-attachment: fixed;
+	background-size: cover;
+	box-shadow: 3px -4px 34px 11px inset;
+}
+#mX{
+	background: url("https://dmi3w0goirzgw.cloudfront.net/gallery-images/1600/353000/800/353889.jpg") no-repeat center;
+	background-size: cover;
+}
+#mR{
+	background: url("https://i2.wp.com/i.imgur.com/5cq4VCd.jpg?resize=1000%2C563&ssl=1") no-repeat center;
+	background-size: cover;
+}
+a.btn{
+    	-webkit-appearance: button;
+    	-moz-appearance: button;
+    	appearance: button;
+    	text-decoration: none;
+    	background: white;
+    	margin-top: 3vh;
+    	margin-left: 2.3vw;
+    	padding: 10px;
+    	color: black;
+    	font-family: Cinzel;
+    	transition: .2s;
+}
+a.btn:hover{
+	transform: translate(1px, -1px);
+	color: red;
+	box-shadow: -5px 5px 7px -3px rgba(122,122,122,1);
+}
+.smallCarBox{
+	min-height: 100vh;
+    background: url(http://cf.c.ooyala.com/9pbThkNTE6WKEhDkVgXGuPSMAkMHh32U/Ut_HKthATH4eww8X4xMDoxOjA4MTsiGN) no-repeat bottom;
+	background-size: cover;
+	transition: .6s;
+}
+.exteriorModel3{
+	display: inline-block;
+	width: 60vw;
+	height: 85vh;
+	background: url("https://assets.flatpyramid.com/wp-content/uploads/2018/07/12110058/tesla-model-3-copyright-00010-1024x576.jpg") no-repeat center;
+	background-position: 10vw;
+	background-size: 60%;
+}
+.interiorModel3{
+	display: inline-block;
+	width: 37vw;
+	height: 85vh;
+	background: url("https://im.mtv.fi/image/6520662/landscape16_9/1024/576/2db231da531e8b07a9e449fa1b9f258f/hy/tesla-model-3-interior.jpg") no-repeat center;
+	background-size: 110%;
+}
+.exteriorModelS{
+	display: inline-block;
+	width: 60vw;
+	height: 70vh;
+	background: url("https://static.yellowimages.com/wp-content/uploads/2016/08/12887-preview-03-57b1d2821e7f7.jpg") no-repeat 20%;
+	background-size: 50%;
+}
+.interiorModelS{
+	display: inline-block;
+	width: 37vw;
+	height: 85vh;
+	background: url("https://st.motortrend.ca/uploads/sites/42/2012/11/2013-Tesla-Model-S-headlight.jpg") no-repeat center;	
+	background-size: 110%;
+}
+.exteriorModelX{
+	display: inline-block;
+	width: 60vw;
+	height: 85vh;
+	background: url("https://dmi3w0goirzgw.cloudfront.net/gallery-images/840x560/393000/600/393628.jpg") no-repeat center;
+	background-size: 65%;
+}
+.interiorModelX{
+	display: inline-block;
+	width: 37vw;
+	height: 85vh;
+	background: url("https://dmi3w0goirzgw.cloudfront.net/gallery-images/840x560/393000/600/393639.jpg") no-repeat left;
+	background-size: 90%;
+}
+.exteriorModelR{
+	display: inline-block;
+	width: 60vw;
+	height: 85vh;
+	background: url("https://img-new.cgtrader.com/items/851940/01d76a196b/large/tesla-coupe-2020-3d-model-max-obj-3ds-fbx-c4d-lwo-lw-lws.jpg") no-repeat center;
+	background-size: 65%;
+}
+.interiorModelR{
+	display: inline-block;
+	width: 37vw;
+	height: 85vh;
+	background: url("https://electrek.co/wp-content/uploads/sites/3/2018/08/Roadster_Steering_Wheel-1-e1534010308729.jpg?quality=82&strip=all&w=1600") no-repeat center;
+	background-size: 158%;
+}
+.colorBox{
+	display: inline-block;
+	padding-bottom: 20px;
+	width: 180px;
+	margin: 70vh 0 0 10vw;
+	border-bottom: 1px solid lightgrey;
+}
+.colorBox2{
+	display: inline-block;
+	padding-bottom: 20px;
+	width: 180px;
+	margin: 70vh 0 0 0;
+    border-bottom: 1px solid lightgrey;	
+}
+.colorBox:hover, .colorBox2:hover{
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 47%,rgba(255,255,255,1) 100%);
+}
+.colorBox p, .colorBox2 p{
+	padding: 10px;
+	color: whitesmoke;
+	font-size: 14pt;
+	font-weight: 600;
+	background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
+}
+.color{
+	cursor: pointer;
+	display: inline-block;
+	border-top-left-radius: 120px;
+	border-bottom-right-radius: 120px;
+	border: .7px solid lightgray;
+	margin: 0 2px;
+	width: 50px;
+	height: 10px;
+	transition: .2s;
+}
+.color:hover{
+	box-shadow: 7px 6px 7px -3px rgba(122,122,122,1);
+	border: .6px solid darkgray;
+}
+.redExt{
+	background: linear-gradient(to bottom, #a56a76 0%,#8f0222 44%,#ce0003 100%); 
+}
+.whtExt{
+	background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(241,241,241,1) 50%,rgba(225,225,225,1) 51%,rgba(246,246,246,1) 100%);
+}
+.bluExt{
+	background: linear-gradient(to bottom, rgba(30,87,153,0.8) 0%,rgba(30,87,153,1) 12%,rgba(41,137,216,1) 50%,rgba(30,87,153,1) 91%,rgba(30,87,153,0.8) 99%,rgba(30,87,153,0) 100%);
+}
+.blkInt{
+	background: linear-gradient(to bottom, rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%); 
+}
+.crmInt{
+	background: linear-gradient(to bottom, rgba(213,206,166,1) 0%,rgba(201,193,144,1) 40%,rgba(183,173,112,1) 100%);
+}
+.whtInt{
+	background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%);
+}
+@media only screen and (max-width: 695px){
+  #intro img
+  {
+  	margin-left: 0vw;
+  	width: 96vw;
+  }
+  #home ul
+  {
+    display: none;
+  }
+  .extras
+  {
+  	display: none;
+  }
+  #m3 button
+  {
+  	height: 67px;
+  	margin-top: 65vh;
+  }
+  .smallCarBox
+  {
+    background-position: center;
+    min-height: 200vh;
+  }
+
+
+  .interiorModel3, .interiorModelS,
+  .interiorModelX, .interiorModelR, 
+  .exteriorModel3, .exteriorModelS,
+  .exteriorModelX, .exteriorModelR
+  {
+    width: 40vw;
+    background-position: left;
+  }
+  .interiorModel3, .interiorModelS,
+  .interiorModelX, .interiorModelR
+  {
+    height: 45vh;
+  }
+  /* .exteriorModel3{
+       height: 45vh;
+       width: 40vw;
+  } */
+
+
+  .colorbox, .colorBox2
+  {
+    margin: 50vh 0 0 0vw;
+  }
+  .colorBox{
+      margin-left: 0;
+  }
+}
+</style>
+</head>
+<body>
+	<div class="sidebar">
+		<ul>
+			<li><a href="#home">Home</a></li>
+			<li><a href="#m3">Model 3</a></li>
+			<li><a href="#mS">Model S</a></li>
+			<li><a href="#mX">Model X</a></li>
+			<li><a href="#mR">Roadster</a></li>
+		</ul>
+		<img class="lower" src="https://www.gran-turismo.com/images/c/i1fYKGCVampJjz.png" alt="Tesla logo">
+		<button class="sidebarBtn">
+			<span></span>
+		</button>		
+	</div>
+	<div id="wrapper">
+		<header id="home">
+			<img src="http://shetechexplorer.com/wp-content/uploads/2016/10/tesla-logo-png-2258.png" alt="Tesla logo">
+			<ul>
+				<li><a href="#m3">Model 3</a></li>
+				<li><a href="#mS">Model S</a></li>
+				<li><a href="#mX">Model X</a></li>
+				<li><a href="#mR">Roadster</a></li>		
+			</ul>
+		</header>
+		<div id="intro">
+			<img class="modS" src="https://file.kbb.com/kbb/vehicleimage/evoxseo/cp/l/12247/2017-tesla-model%20s-front_12247_032_640x480_ppsb.png?interpolation=high-quality&crop=1.0xw:0.90xh;left,top&downsize=640:*">
+		</div>
+	    <div id="m3">
+		  	<h2>Model 3</h2>
+			<div class="design">
+				<h3>Features</h3>
+				<ul>
+					<li class="extras">Tinted All Glass Roof</li>
+					<li>Enhanced Autopilot</li>
+					<li>15in Touchscreen</li>
+					<li>All Wheel Drive</li>
+					<li>20in  Wheels</li>
+					<li>5 Seats (4 Heated)</li>
+					<li class="extras">Premium Audio System</li>
+					<li class="extras">Satelite Maps w/Live Traffic</li>
+				</ul>
+			    <a href="#mkM3" class="btn m3btn">Design Model 3</a>
+			    <div class="designBtn">
+					<span class="arrowT"></span>
+					<span class="arrowB"></span>
+			    </div>	
+			</div>
+			<button>&#43;</button>
+			<div class="specs">
+	        	<table>
+					<thead>
+						<tr>
+							<td>3.5s</td>
+							<td class="extras">155mph</td>
+							<td>310mi</td>
+							<td class="extras">5</td>
+							<td>$49,000</td>
+							<td class="extras">$81,000</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>Acceleration 0-60mph</th>
+							<th class="extras">Top Speed</th>
+							<th>Range</th>
+							<th class="extras">Seats</th>
+							<th>Base Price</th>
+							<th class="extras">Fully Equipped Price</th>
+						</tr>
+					</tbody>
+	        	</table>
+			</div>
+	    </div>
+		<div class="smallCarBox" id="mkM3">
+			<div class="exteriorModel3">
+				<div class="colorBox">
+					<p>Paint Colors</p>
+					<div class="color redExt"></div>
+					<div class="color bluExt"></div>
+					<div class="color whtExt"></div>
+				</div>
+			</div>
+			<div class="interiorModel3">
+				<div class="colorBox2">
+					<p>Interior Colors</p>
+					<div class="color blkInt"></div>
+					<div class="color whtInt"></div>
+					<div class="color crmInt"></div>
+				</div>
+			</div>
+		</div>
+	    <div id="mS">
+		  	<h2>Model S</h2>
+			<div class="design">
+				<h3>Features</h3>
+				<ul>
+					<li class="extras">Sunroof or All Glass Roof</li>
+					<li>Enhanced Autopilot</li>
+					<li>21in Touchscreen</li>
+					<li>All Wheel Drive</li>
+					<li>21in  Wheels</li>
+					<li>5 Heated Seats (+2 Add'L Rear Optional)</li>
+					<li class="extras">Premium Audio System</li>
+					<li class="extras">Satelite Maps w/Live Traffic</li>
+					<li class="extras">Dual Zone Climate Control</li>
+				</ul>
+			    <a href="#mkMS" class="btn mSbtn">Design Model S</a>
+			    <div class="designBtn">
+					<span class="arrowT"></span>
+					<span class="arrowB"></span>
+			    </div>	
+			</div>
+			<button>&#43;</button>
+			<div class="specs">
+				<table>
+					<thead>
+						<tr>
+							<td>2.5s</td>
+							<td class="extras">155mph</td>
+							<td>315mi</td>
+							<td class="extras">5-7</td>
+							<td>$77,000</td>
+							<td class="extras">$156,000</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>Acceleration 0-60mph</th>
+							<th class="extras">Top Speed</th>
+							<th>Range</th>
+							<th class="extras">Seats</th>
+							<th>Base Price</th>
+							<th class="extras">Fully Equipped Price</th>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+	    </div>
+		<div class="smallCarBox" id="mkMS">
+			<div class="exteriorModelS">
+				<div class="colorBox">
+					<p>Paint Colors</p>
+					<div class="color redExt"></div>
+					<div class="color bluExt"></div>
+					<div class="color whtExt"></div>
+				</div>
+			</div>
+			<div class="interiorModelS">
+				<div class="colorBox2">
+					<p>Interior Colors</p>
+					<div class="color blkInt"></div>
+					<div class="color whtInt"></div>
+					<div class="color crmInt"></div>
+				</div>
+			</div>
+		</div>
+	    <div id="parallax"></div>
+	    <div id="mX">
+		  	<h2>Model X</h2>
+			<div class="design">
+				<h3>Features</h3>
+				<ul>
+					<li class="extras">Gullwing Side Doors</li>
+					<li>Enhanced Autopilot</li>
+					<li>18in Touchscreen</li>
+					<li>All Wheel Drive</li>
+					<li>20in  Wheels</li>
+					<li>5-7 Heated Seats</li>
+					<li class="extras">Satelite Maps w/Live Traffic</li>
+					<li class="extras">Dual Zone Climate Control</li>
+				</ul>
+			    <a href="#mkMX" class="btn mXbtn">Design Model X</a>
+			    <div class="designBtn">
+					<span class="arrowT"></span>
+					<span class="arrowB"></span>
+			    </div>	
+			</div>
+			<button>&#43;</button>
+			<div class="specs">
+				<table>
+					<thead>
+						<tr>
+							<td>2.9s</td>
+							<td class="extras">155mph</td>
+							<td>289mi</td>
+							<td class="extras">5-7</td>
+							<td>$83,000</td>
+							<td class="extras">$162,000</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>Acceleration 0-60mph</th>
+							<th class="extras">Top Speed</th>
+							<th>Range</th>
+							<th class="extras">Seats</th>
+							<th>Base Price</th>
+							<th class="extras">Fully Equipped Price</th>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+	    </div>
+		<div class="smallCarBox" id="mkMX">
+			<div class="exteriorModelX">
+				<div class="colorBox">
+					<p>Paint Colors</p>
+					<div class="color redExt"></div>
+					<div class="color bluExt"></div>
+					<div class="color whtExt"></div>
+				</div>
+			</div>
+			<div class="interiorModelX">
+				<div class="colorBox2">
+					<p>Interior Colors</p>
+					<div class="color blkInt"></div>
+					<div class="color whtInt"></div>
+					<div class="color crmInt"></div>
+				</div>
+			</div>
+		</div>
+	    <div id="mR">
+		  	<h2>Roadster</h2>
+			<div class="design">
+				<h3>Features</h3>
+				<ul>
+					<li class="extras">Removable Glass Roof</li>
+					<li>Enhanced Autopilot</li>
+					<li>20in Touchscreen</li>
+					<li>All Wheel Drive</li>
+					<li>22in  Wheels</li>
+					<li>4 Heated Seats</li>
+					<li class="extras">Ulta Premium Audio System</li>
+					<li class="extras">Satelite Maps w/Live Traffic</li>
+				</ul>
+			    <a href="#mkMR" class="btn mRbtn">Design Roadster</a>
+			    <div class="designBtn">
+					<span class="arrowT"></span>
+					<span class="arrowB"></span>
+			    </div>	
+			</div>
+			<button>&#43;</button>
+			<div class="specs">
+				<table>
+					<thead>
+						<tr>
+							<td>1.9s</td>
+							<td class="extras">250+mph</td>
+							<td>620mi</td>
+							<td class="extras">4</td>
+							<td>$200,000</td>
+							<td class="extras">$250,000</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>Acceleration 0-60mph</th>
+							<th class="extras">Top Speed</th>
+							<th>Range</th>
+							<th class="extras">Seats</th>
+							<th>Base Price</th>
+							<th class="extras">Fully Equipped Price</th>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+	    </div>
+		<div class="smallCarBox" id="mkMR">
+			<div class="exteriorModelR">
+				<div class="colorBox">
+					<p>Paint Colors</p>
+					<div class="color redExt"></div>
+					<div class="color bluExt"></div>
+					<div class="color whtExt"></div>
+				</div>
+			</div>
+			<div class="interiorModelR">
+				<div class="colorBox2">
+					<p>Interior Colors</p>
+					<div class="color blkInt"></div>
+					<div class="color whtInt"></div>
+					<div class="color crmInt"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
